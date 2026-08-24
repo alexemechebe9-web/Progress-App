@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress | Dashboard</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <script src="dashboard.js" defer></script>
+</head>
+<body>
+  <main class="dashboard-shell">
+    <div class="flow-background" aria-hidden="true">
+      <div class="flow-layer flow-layer-one"></div>
+      <div class="flow-layer flow-layer-two"></div>
+      <div class="flow-layer flow-layer-three"></div>
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><span class="sidebar-mark" aria-hidden="true">P</span><span>Progress</span></div>
+      <nav class="sidebar-nav">
+        <button class="nav-item is-active" type="button">Goals</button>
+        <button class="nav-item" type="button">Assignments</button>
+        <button class="nav-item" type="button">Tasks</button>
+        <button class="nav-item" type="button">Schedule</button>
+        <button class="nav-item" id="calendar-nav" type="button">Calendar</button>
+        <button class="nav-item" type="button">Progress</button>
+        <button class="nav-item" type="button">Saved</button>
+      </nav>
+    </aside>
+
+    <section class="dashboard-content" aria-labelledby="dashboard-title">
+      <header class="dashboard-header">
+        <p class="section-kicker">Your space to grow</p>
+        <h1 id="dashboard-title">Welcome, <span id="username">there</span></h1>
+        <p class="section-intro">Choose something you would like to explore today.</p>
+      </header>
+
+      <section class="category-section" aria-labelledby="category-title">
+        <div class="section-heading">
+          <h2 id="category-title">Explore categories</h2>
+          <span class="category-count">8 paths</span>
+        </div>
+        <div class="category-grid" id="category-grid"></div>
+      </section>
+
+      <section class="choice-view" id="choice-view" aria-labelledby="choice-title" hidden>
+        <button class="back-button choice-back" id="choice-back" type="button" aria-label="Back to categories" title="Back to categories">&larr;</button>
+        <div class="section-heading choice-heading">
+          <div>
+            <p class="section-kicker" id="choice-label"></p>
+            <h2 id="choice-title">Choose something to explore</h2>
+          </div>
+          <span class="category-count" id="choice-count"></span>
+        </div>
+        <div class="choice-cloud-grid" id="choice-grid"></div>
+      </section>
+
+      <section class="detail-view" id="detail-view" aria-labelledby="detail-title" hidden>
+        <button class="back-button" id="back-button" type="button" aria-label="Back to choices" title="Back to choices">&larr;</button>
+        <div class="detail-card">
+          <div class="detail-emoji-wrap" aria-hidden="true"><span id="detail-emoji"></span></div>
+          <div class="detail-copy">
+            <p class="detail-label" id="detail-label"></p>
+            <h2 id="detail-title"></h2>
+            <p class="detail-summary" id="detail-summary"></p>
+            <div class="detail-scroll" id="detail-scroll">
+              <h3>What you can learn</h3>
+            </div>
+            <div class="action-row" aria-label="Activity actions">
+              <button class="action-button action-lesson" type="button">Lesson</button>
+              <button class="action-button action-assign" type="button">Assign</button>
+              <button class="action-button action-save" type="button">Save</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
