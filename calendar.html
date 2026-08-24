@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Progress | Calendar</title>
+  <link rel="stylesheet" href="dashboard.css">
+  <link rel="stylesheet" href="calendar.css">
+  <script src="calendar.js" defer></script>
+</head>
+<body>
+  <main class="calendar-shell">
+    <div class="flow-background" aria-hidden="true">
+      <div class="flow-layer flow-layer-one"></div>
+      <div class="flow-layer flow-layer-two"></div>
+      <div class="flow-layer flow-layer-three"></div>
+    </div>
+
+    <button class="menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-brand"><span class="sidebar-mark" aria-hidden="true">P</span><span>Progress</span></div>
+      <nav class="sidebar-nav">
+        <button class="nav-item" type="button">Goals</button>
+        <button class="nav-item" type="button">Assignments</button>
+        <button class="nav-item" type="button">Tasks</button>
+        <button class="nav-item" type="button">Schedule</button>
+        <button class="nav-item is-active" id="calendar-nav" type="button">Calendar</button>
+        <button class="nav-item" type="button">Progress</button>
+        <button class="nav-item" type="button">Saved</button>
+      </nav>
+    </aside>
+
+    <section class="calendar-content" aria-labelledby="calendar-title">
+      <p class="section-kicker">Keep your rhythm</p>
+      <h1 id="calendar-title">Calendar</h1>
+      <div class="calendar-card">
+        <div class="calendar-toolbar">
+          <button id="previous-month" type="button" aria-label="Previous month">&larr;</button>
+          <h2 id="month-label"></h2>
+          <button id="next-month" type="button" aria-label="Next month">&rarr;</button>
+        </div>
+        <div class="calendar-actions">
+          <button id="today-button" type="button">Today</button>
+          <button id="add-item-button" type="button">+ Add</button>
+        </div>
+        <div class="weekday-row" aria-hidden="true"></div>
+        <div class="date-grid" id="date-grid"></div>
+      </div>
+    </section>
+
+    <div class="calendar-dialog-backdrop" id="calendar-dialog-backdrop" hidden>
+      <section class="calendar-dialog" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+        <button class="dialog-close" id="dialog-close" type="button" aria-label="Close">&times;</button>
+        <h2 id="dialog-title">Add calendar item</h2>
+        <form id="calendar-form">
+          <label>Title<input id="item-title" name="title" required></label>
+          <div class="form-row">
+            <label>Date<input id="item-date" name="date" type="date" required></label>
+            <label>Type<select id="item-type" name="type"></select></label>
+          </div>
+          <div class="form-row">
+            <label>Start time<input id="item-start" name="start" type="time"></label>
+            <label>End time<input id="item-end" name="end" type="time"></label>
+          </div>
+          <label>Notes<textarea id="item-notes" name="notes" rows="3"></textarea></label>
+          <label class="complete-option" id="complete-option" hidden><input id="item-complete" type="checkbox"> Mark complete</label>
+          <div class="dialog-actions">
+            <button type="button" id="delete-item" hidden>Delete</button>
+            <button type="submit">Save</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="more-events-backdrop" id="more-events-backdrop" hidden>
+      <section class="more-events-dialog" role="dialog" aria-modal="true" aria-labelledby="more-events-title">
+        <button class="dialog-close" id="more-events-close" type="button" aria-label="Close">&times;</button>
+        <h2 id="more-events-title">More events</h2>
+        <div id="more-events-list"></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
